@@ -1,0 +1,352 @@
+/* Settings.css */
+
+.settings-page {
+  max-width: 1080px;
+}
+
+/* Floating card with stacked paper shadows */
+.settings-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+}
+
+.settings-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #e8e3db;
+  border: 0.5px solid #c2bdb3;
+  border-radius: inherit;
+  transform: translate(3px, 4px);
+  z-index: -1;
+}
+
+.settings-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #dbd6cc;
+  border: 0.5px solid #bbb6ac;
+  border-radius: inherit;
+  transform: translate(6px, 8px);
+  z-index: -2;
+}
+
+.settings-card {
+  position: relative;
+  background: var(--color-base);
+  border: 0.5px solid #c8c2b8;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px 24px;
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+}
+
+/* Header row */
+.settings-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.settings-title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 400;
+  margin: 0;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.settings-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.settings-edit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 0.5px solid #c8c2b8;
+  border-radius: var(--radius-md);
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--color-text);
+  background: transparent;
+  transition: background 120ms ease;
+  flex-shrink: 0;
+}
+
+.settings-edit-btn--save {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-base);
+}
+
+.settings-edit-btn--cancel {
+  background: var(--color-surface);
+}
+
+.settings-edit-btn:hover {
+  background: var(--color-surface-hover);
+}
+
+.settings-edit-btn--save:hover {
+  background: #4f8058;
+  border-color: #4f8058;
+}
+
+.settings-edit-btn img {
+  width: 16px;
+  height: 16px;
+  display: block;
+  opacity: 0.7;
+}
+
+.settings-edit-btn--save img {
+  filter: brightness(0) invert(0.95);
+  opacity: 1;
+}
+
+/* Avatar */
+.settings-avatar {
+  position: absolute;
+  top: 118px;
+  right: 96px;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  display: block;
+}
+
+/* Fields */
+.settings-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 8px;
+}
+
+.settings-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.settings-field__label {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  color: rgba(68, 65, 62, 0.8);
+}
+
+.settings-field__helper {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+.settings-field__value {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(68, 65, 62, 0.8);
+}
+
+.settings-field__input {
+  width: min(320px, 100%);
+  box-sizing: border-box;
+  background: var(--color-base);
+  border: 0.5px solid #c8c2b8;
+  border-radius: var(--radius-md);
+  padding: 7px 10px;
+  font-family: var(--font-ui);
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(68, 65, 62, 0.8);
+  outline: none;
+  transition: border-color 120ms ease, background 120ms ease;
+}
+
+.settings-field__input:focus,
+.settings-field__value--box:focus {
+  border-color: var(--color-accent);
+}
+
+.settings-field__value--box {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--color-base);
+  border: 0.5px solid #c8c2b8;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  min-height: 0;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text);
+  outline: none;
+  resize: none;
+  overflow-y: hidden;
+  transition: border-color 120ms ease;
+}
+
+.settings-field__value--box.is-editing {
+  overflow-y: hidden;
+}
+
+.settings-field__value--box::-webkit-scrollbar {
+  width: 6px;
+}
+
+.settings-field__value--box::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 12px 0;
+}
+
+.settings-field__value--box::-webkit-scrollbar-thumb {
+  background: rgba(31, 27, 22, 0.15);
+  border-radius: 999px;
+}
+
+.settings-field__row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.settings-field__reveal {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  color: var(--color-accent);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity 100ms ease;
+}
+
+.settings-field__reveal:hover {
+  opacity: 0.8;
+}
+
+/* Connected apps */
+.settings-apps {
+  margin-top: 8px;
+}
+
+.settings-apps__label {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19px;
+  color: rgba(68, 65, 62, 0.8);
+  margin-bottom: 12px;
+}
+
+.settings-apps__row {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.settings-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 80px;
+  min-height: 75px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.settings-app__top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+}
+
+.settings-app__status {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  border: 1px solid rgba(31, 27, 22, 0.3);
+  background: var(--color-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.settings-app.is-connected .settings-app__status {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.settings-app__check-mark {
+  width: 8px;
+  height: 8px;
+  display: block;
+  opacity: 0;
+  filter: brightness(0) invert(1);
+  transition: opacity 120ms ease;
+}
+
+.settings-app.is-connected .settings-app__check-mark {
+  opacity: 1;
+}
+
+.settings-app__icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.settings-app__label {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  line-height: 15px;
+  color: var(--color-text);
+  min-height: 15px;
+}
+
+.settings-app__sub {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  line-height: 14px;
+  color: var(--color-text-muted);
+  min-height: 14px;
+  display: block;
+  white-space: nowrap;
+}
+
+/* Custom scrollbar */
+.settings-card::-webkit-scrollbar {
+  width: 6px;
+}
+
+.settings-card::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 12px 0;
+}
+
+.settings-card::-webkit-scrollbar-thumb {
+  background: rgba(31, 27, 22, 0.15);
+  border-radius: 999px;
+}

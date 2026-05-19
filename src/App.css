@@ -1,0 +1,119 @@
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-base);
+}
+
+.app-content {
+  margin-left: calc(var(--sidebar-x) + var(--sidebar-width));
+  padding: var(--sidebar-y) 0 48px;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.app-content--full {
+  margin-left: 0;
+  padding: 0;
+  display: block;
+}
+
+.page {
+  width: calc(100% - 96px);
+  max-width: 1080px;
+  min-width: 0;
+}
+
+.app-content:not(.app-content--full) > .garden {
+  width: calc(100% - 96px);
+  max-width: 1080px;
+  min-width: 0;
+}
+
+:is(
+  .activity-wrapper,
+  .categories-wrapper,
+  .conditions-wrapper,
+  .nc-wrapper,
+  .newseed-wrapper,
+  .roots-wrapper,
+  .seed-card-wrapper,
+  .settings-wrapper
+) {
+  position: relative;
+  border-radius: var(--radius-lg);
+  isolation: isolate;
+}
+
+:is(
+  .activity-wrapper,
+  .categories-wrapper,
+  .conditions-wrapper,
+  .nc-wrapper,
+  .newseed-wrapper,
+  .roots-wrapper,
+  .seed-card-wrapper,
+  .settings-wrapper
+)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--color-base);
+  transform: translate(-8px, 8px);
+  box-shadow:
+    inset 0 0 0 1px #D0CBC3,
+    -8px 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+:is(
+  .activity-wrapper,
+  .categories-wrapper,
+  .conditions-wrapper,
+  .nc-wrapper,
+  .newseed-wrapper,
+  .roots-wrapper,
+  .seed-card-wrapper,
+  .settings-wrapper
+)::after {
+  display: none;
+}
+
+:is(
+  .activity-card,
+  .categories-card,
+  .conditions-card,
+  .nc-card,
+  .newseed-card,
+  .roots-card,
+  .seed-card,
+  .settings-card
+) {
+  border: 0;
+  box-shadow:
+    inset 0 0 0 1px #D0CBC3,
+    8px 12px 20px rgba(0, 0, 0, 0.4);
+}
+
+.page__title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 400;
+  margin: 0 0 8px;
+  letter-spacing: -0.01em;
+}
+
+.page__subtitle {
+  color: var(--color-text-muted);
+  margin: 0 0 32px;
+}
+
+.placeholder-card {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: 32px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-text-muted);
+}

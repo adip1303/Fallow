@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\adhip\\\\AppData\\\\Local\" -ErrorAction SilentlyContinue -Depth 1 | Select-Object Name | Where-Object { $_.Name -match 'node|nvm|fnm' })",
+      "PowerShell(cmd /c \"where npm 2>&1\")",
+      "PowerShell([System.Environment]::GetEnvironmentVariable\\(\"NVM_HOME\", \"User\"\\); [System.Environment]::GetEnvironmentVariable\\(\"NVM_SYMLINK\", \"User\"\\))",
+      "PowerShell($env:PATH = \"C:\\\\nvm4w\\\\nodejs;\" + $env:PATH; $env:PATH += \";C:\\\\Users\\\\adhip\\\\AppData\\\\Local\\\\nvm\"; node --version; npm --version)",
+      "Read(//c/nvm4w/nodejs/**)",
+      "Bash(/c/nvm4w/nodejs/npm.cmd --version)",
+      "Bash(export PATH=\"/c/nvm4w/nodejs:$PATH\")",
+      "Bash(npm start *)",
+      "Bash(echo \"PID: $!\")",
+      "Read(//tmp/**)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(curl -s --max-time 3 http://localhost:8642/v1/models)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(cd /mnt/c/Users/adhip/Desktop/fallow/fallow-app)",
+      "Bash(ls electron/)",
+      "Bash(node_modules/.bin/electron --version)",
+      "Bash(npx electron *)",
+      "PowerShell(Get-Command node -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source; [System.Environment]::GetEnvironmentVariable\\(\"Path\", \"User\"\\) -split \";\" | Select-String -Pattern \"nvm|node\" -SimpleMatch)",
+      "PowerShell(Get-ChildItem \"$env:LOCALAPPDATA\\\\nvm\" -ErrorAction SilentlyContinue | Format-Table Name; Get-ChildItem \"$env:USERPROFILE\\\\.nvm\" -ErrorAction SilentlyContinue | Format-Table Name; Get-ChildItem \"C:\\\\nvm\" -ErrorAction SilentlyContinue | Format-Table Name)",
+      "Bash(xargs grep *)",
+      "mcp__Claude_Preview__preview_start"
+    ]
+  }
+}
