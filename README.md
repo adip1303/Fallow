@@ -37,7 +37,7 @@ Fallow runs without Hermes — you can plant seeds, add conditions, and manage y
 ## Install
 
 ```bash
-git clone https://github.com/yourusername/fallow.git
+git clone https://github.com/adip1303/fallow.git
 cd fallow
 npm install
 ```
